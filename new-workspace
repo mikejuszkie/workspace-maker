@@ -1,0 +1,67 @@
+#########################################
+# !/bin/bash				#
+# New Workspace script			#
+# Michael Juszkiewicz			#
+# Date 08.18.15				#
+#########################################
+
+### define constants ###
+TOKEN=			## your token here
+USERNAME= 		## your user name here
+
+### Check arguments ###
+
+MAIN_DIR=$1
+
+
+### Create Main Directory ###
+
+mkdir $MAIN_DIR
+touch $MAIN_DIR/README.txt
+echo Directory created >> $MAIN_DIR/README.txt
+date >> $MAIN_DIR/README.txt
+echo Directory creator >> $MAIN_DIR/README.txt
+whoami >> $MAIN_DIR/README.txt
+
+touch $MAIN_DIR/MAKEFILE
+
+### Create Build Directory ###
+
+mkdir $MAIN_DIR/build
+touch $MAIN_DIR/build/README.txt
+echo Directory created >> $MAIN_DIR/build/README.txt
+date >> $MAIN_DIR/README.txt
+echo Directory creator >> $MAIN_DIR/build/README.txt
+whoami >> $MAIN_DIR/build/README.txt
+
+
+### Create Debug Directory ###
+
+mkdir $MAIN_DIR/debug
+touch $MAIN_DIR/debug/README.txt
+echo Directory created >> $MAIN_DIR/debug/README.txt
+date >> $MAIN_DIR/debug/README.txt
+echo Directory creator >> $MAIN_DIR/debug/README.txt
+whoami >> $MAIN_DIR/debug/README.txt
+
+### Create Wiki Directory ###
+
+mkdir $MAIN_DIR/wiki
+touch $MAIN_DIR/wiki/README.txt
+echo Directory created >> $MAIN_DIR/wiki/README.txt
+date >> $MAIN_DIR/wiki/README.txt
+echo Directory creator >> $MAIN_DIR/wiki/README.txt
+whoami >> $MAIN_DIR/wiki/README.txt
+
+
+
+
+## Create GitHub Repo and commit initial creation ##
+
+curl -u $USERNAME:$TOKEN https://api.github.com/user/repos -d '{"name":"'$MAIN_DIR'"}'
+cd $MAIN_DIR
+git init
+git add -A
+git commit -m "first commit: Project Creation"
+git remote add origin https://github.com/$USERNAME/$MAIN_DIR.git
+git push -u origin master
