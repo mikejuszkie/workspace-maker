@@ -6,7 +6,7 @@ Tue Aug 18 12:26:51 UTC 2015
 
 ################################################################################
 
-Workspace-maker V1.0
+Workspace-maker V0.1
 
 This is a simple script ment to simplify the creation of project 
 directories and git repos.
