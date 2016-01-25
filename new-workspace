@@ -5,16 +5,20 @@
 # Date 08.18.15				#
 #########################################
 
-### define constants ###
+	### define constants ###
+
 TOKEN=			## your token here
 USERNAME= 		## your user name here
 
-### Check arguments ###
+DEFAULT_DIR=		## Directory where default options are held
+TEMPLATE_DIR=		## Directory Where workspace templates are held
+
+	### Check arguments ###
 
 MAIN_DIR=$1
 
 
-### Create Main Directory ###
+	### Create Main Directory ###
 
 mkdir $MAIN_DIR
 touch $MAIN_DIR/README.txt
@@ -25,7 +29,7 @@ whoami >> $MAIN_DIR/README.txt
 
 touch $MAIN_DIR/MAKEFILE
 
-### Create Build Directory ###
+	### Create Build Directory ###
 
 mkdir $MAIN_DIR/build
 touch $MAIN_DIR/build/README.txt
@@ -35,7 +39,7 @@ echo Directory creator >> $MAIN_DIR/build/README.txt
 whoami >> $MAIN_DIR/build/README.txt
 
 
-### Create Debug Directory ###
+	### Create Debug Directory ###
 
 mkdir $MAIN_DIR/debug
 touch $MAIN_DIR/debug/README.txt
@@ -44,7 +48,7 @@ date >> $MAIN_DIR/debug/README.txt
 echo Directory creator >> $MAIN_DIR/debug/README.txt
 whoami >> $MAIN_DIR/debug/README.txt
 
-### Create Wiki Directory ###
+	### Create Wiki Directory ###
 
 mkdir $MAIN_DIR/wiki
 touch $MAIN_DIR/wiki/README.txt
@@ -56,7 +60,7 @@ whoami >> $MAIN_DIR/wiki/README.txt
 
 
 
-## Create GitHub Repo and commit initial creation ##
+	## Create GitHub Repo and commit initial creation ##
 
 curl -u $USERNAME:$TOKEN https://api.github.com/user/repos -d '{"name":"'$MAIN_DIR'"}'
 cd $MAIN_DIR
